@@ -1,0 +1,72 @@
+{
+  "users": [
+    {
+      "email": "wvalek3@vk.com",
+      "password": "$2a$10$CFjXpb9Z2DTiXIs6gm3AjOGRU4w5pa2loD8k27dyunJKYUEC/54I.",
+      "id": 4,
+      "first_name": "Willard",
+      "last_name": "Valek",
+      "gender": "Male",
+      "ip_address": "67.76.188.26",
+      "friends": [
+        {
+          "id": 2,
+          "name": "Giavani"
+        }
+      ]
+    },
+    {
+      "email": "nbea2@imageshack.us",
+      "password": "$2a$10$I9sbO5ZAnlh/b0JXijwakuPyK1Am9Bb44XNKrl3c2wDjk03MTPQ2C",
+      "id": 3,
+      "first_name": "Noell",
+      "last_name": "Bea",
+      "gender": "Female",
+      "ip_address": "180.66.162.255",
+      "friends": [
+        {
+          "id": 1,
+          "name": "Jeanette"
+        }
+      ]
+    },
+    {
+      "email": "gfrediani1@senate.gov",
+      "password": "$2a$10$CRyw.xHKLm3YuoNltGSOn.FMZDOOE0QAyemoVz8r16SAcXjU5Ibdu",
+      "id": 2,
+      "first_name": "Giavani",
+      "last_name": "Frediani",
+      "gender": "Male",
+      "ip_address": "229.179.4.212",
+      "friends": [
+        {
+          "id": 1,
+          "name": "Jeanette"
+        },
+        {
+          "id": 4,
+          "name": "Willard"
+        }
+      ]
+    },
+    {
+      "email": "jpenddreth0@census.gov",
+      "password": "$2a$10$ft8xcXWjvK3PnVkNQuamUuL2hI07POsVeE1ptaB4KL.GXccxZNYZW",
+      "id": 1,
+      "first_name": "Jeanette",
+      "last_name": "Penddreth",
+      "gender": "Female",
+      "ip_address": "26.58.193.2",
+      "friends": [
+        {
+          "id": 2,
+          "name": "Giavani"
+        },
+        {
+          "id": 3,
+          "name": "Noell"
+        }
+      ]
+    }
+  ]
+}
