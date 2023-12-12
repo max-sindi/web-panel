@@ -6,7 +6,7 @@ export interface IFriend {
   name: string
 }
 
-export type IFriendId = IFriend["id"]
+export type TFriendId = IFriend["id"]
 
 const friendAdapter = createEntityAdapter<IFriend>()
 

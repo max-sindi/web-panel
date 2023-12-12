@@ -1,5 +1,5 @@
 import React from "react"
-import { Container as ChakraContainer } from "@chakra-ui/react"
+import {Box, Container, Stack} from "@chakra-ui/react"
 import Header from "src/UI/Header"
 import {useAppDispatch} from "src/setup/hooks"
 import {loginBasicActions} from "src/modules/login/login.slice"
@@ -17,10 +17,12 @@ const DefaultLayout: React.FC<IDefaultLayoutProps> = ({ children, header }) => {
   }
 
   return (
-    <ChakraContainer maxW={1200}>
-      {header && <Header logout={onLogout} />}
-      {children}
-    </ChakraContainer>
+    <Container maxW={1200}>
+      <Stack>
+        {header && <Header logout={onLogout} />}
+        <Box>{children}</Box>
+      </Stack>
+    </Container>
   )
 }
 

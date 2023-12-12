@@ -1,5 +1,5 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit"
-import {IFriend, IFriendId} from "src/modules/friend/friend.slice"
+import {IFriend, TFriendId} from "src/modules/friend/friend.slice"
 import {Modify} from "src/tools/types"
 import {RootState} from "src/setup/store"
 
@@ -10,7 +10,7 @@ export interface IUser {
   email: string
   gender: string
   ip_address: string
-  friends: Array<IFriendId>
+  friends: Array<TFriendId>
 }
 
 export interface IApiUser extends Modify<IUser, { friends: Array<IFriend> }> {}

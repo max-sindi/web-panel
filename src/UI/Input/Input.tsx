@@ -7,11 +7,7 @@ import {
   FormControlProps as ChakraFormControlProps,
   Input as ChakraInput,
 } from "@chakra-ui/react"
-
-export interface IStatefulAtom<T> {
-  value: T
-  onChange: (value: T) => void
-}
+import {IStatefulAtom} from "src/tools/types"
 
 export interface IInputProps {
   inputProps?: Omit<ChakraInputProps, "onChange"> & IStatefulAtom<string>

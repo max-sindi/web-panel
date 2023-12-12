@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
-import {IApiUser, IUser} from "src/modules/user/user.slice"
+import {IUser} from "src/modules/user/user.slice"
 
 interface ILoginSlice {
   user: IUser

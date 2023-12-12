@@ -1,5 +1,6 @@
 import React from "react"
-import Input, {IStatefulAtom} from "src/UI/Input/Input"
+import Input from "src/UI/Input/Input"
+import {IStatefulAtom} from "src/tools/types"
 
 interface ILoginInputProps extends IStatefulAtom<string> {}
 
