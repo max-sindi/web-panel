@@ -5,6 +5,7 @@ import { RootState } from "src/setup/store"
 
 export interface IUser {
   id: number
+  role: "admin"| "super_user"|"user"
   first_name: string
   last_name: string
   email: string

@@ -1,9 +1,10 @@
 import React from "react"
-import { Stack, Td, Tr } from "@chakra-ui/react"
+import {Divider, Stack, Td, Tr} from "@chakra-ui/react"
 import { EntityId } from "@reduxjs/toolkit"
 import { useAppSelector } from "src/setup/hooks"
 import { usersBasicSelectors } from "src/modules/user/user.slice"
 import Friend from "src/modules/user/components/Friend/Friend"
+import { loginBasicSelectors } from "src/modules/login/login.selector"
 
 interface IUserRowProps {
   id: EntityId
@@ -14,18 +15,25 @@ const UserRow: React.FC<IUserRowProps> = ({ id }) => {
     usersBasicSelectors.selectById(store, id),
   )
 
+  const { isSuperUser, isAdmin } = useAppSelector(
+    loginBasicSelectors.roleSelector,
+  )
+
   return (
     <Tr>
       <Td>{userData?.id}</Td>
-      <Td>{userData?.email}</Td>
+      {(isAdmin || isSuperUser) && <Td>{userData?.email}</Td>}
       <Td>{userData?.first_name}</Td>
       <Td>{userData?.last_name}</Td>
       <Td>{userData?.gender}</Td>
-      <Td>{userData?.ip_address}</Td>
+      {isAdmin && <Td>{userData?.ip_address}</Td>}
       <Td>
         <Stack>
-          {userData?.friends?.map((friendId) => (
-            <Friend id={friendId} key={friendId} />
+          {userData?.friends?.map((friendId, index, arr) => (
+            <>
+              <Friend id={friendId} key={friendId} />
+              {index !== arr.length - 1 && <Divider />}
+            </>
           ))}
         </Stack>
       </Td>

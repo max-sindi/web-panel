@@ -11,11 +11,15 @@ import {
 import { useAppSelector } from "src/setup/hooks"
 import { usersBasicSelectors } from "src/modules/user/user.slice"
 import UserRow from "src/modules/user/components/UserRow/UserRow"
+import { loginBasicSelectors } from "src/modules/login/login.selector"
 
 interface IUsersTableProps {}
 
 const UsersTable: React.FC<IUsersTableProps> = () => {
   const usersIds = useAppSelector(usersBasicSelectors.selectIds)
+  const { isSuperUser, isAdmin } = useAppSelector(
+    loginBasicSelectors.roleSelector,
+  )
   return (
     <>
       <Heading size={"md"} p={5}>
@@ -26,11 +30,11 @@ const UsersTable: React.FC<IUsersTableProps> = () => {
           <Thead>
             <Tr>
               <Th>Id</Th>
-              <Th>Email</Th>
+              {(isAdmin || isSuperUser) && <Th>Email</Th>}
               <Th>First name</Th>
               <Th>Last name</Th>
               <Th>Gender</Th>
-              <Th>Ip Address</Th>
+              {isAdmin && <Th>Ip Address</Th>}
               <Th>Friends</Th>
             </Tr>
           </Thead>

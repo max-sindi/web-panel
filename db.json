@@ -2,6 +2,7 @@
   "users": [
     {
       "email": "wvalek3@vk.com",
+      "role": "admin",
       "password": "$2a$10$CFjXpb9Z2DTiXIs6gm3AjOGRU4w5pa2loD8k27dyunJKYUEC/54I.",
       "id": 4,
       "first_name": "Willard",
@@ -17,6 +18,7 @@
     },
     {
       "email": "nbea2@imageshack.us",
+      "role": "user",
       "password": "$2a$10$I9sbO5ZAnlh/b0JXijwakuPyK1Am9Bb44XNKrl3c2wDjk03MTPQ2C",
       "id": 3,
       "first_name": "Noell",
@@ -32,6 +34,7 @@
     },
     {
       "email": "gfrediani1@senate.gov",
+      "role": "user",
       "password": "$2a$10$CRyw.xHKLm3YuoNltGSOn.FMZDOOE0QAyemoVz8r16SAcXjU5Ibdu",
       "id": 2,
       "first_name": "Giavani",
@@ -51,6 +54,7 @@
     },
     {
       "email": "jpenddreth0@census.gov",
+      "role": "super_user",
       "password": "$2a$10$ft8xcXWjvK3PnVkNQuamUuL2hI07POsVeE1ptaB4KL.GXccxZNYZW",
       "id": 1,
       "first_name": "Jeanette",

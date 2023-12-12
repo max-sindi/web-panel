@@ -14,7 +14,7 @@ const Friend: React.FC<IFriendProps> = ({ id }) => {
   const friend = useAppSelector((state) =>
     friendsBasicSelectors.selectById(state, id),
   )
-  return <Text>{friend?.name}</Text>
+  return <Text fontWeight={600}>{friend?.name}</Text>
 }
 
 export default Friend

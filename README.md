@@ -5,11 +5,11 @@ Then run in parallel
   `npm run dev`
 
 Users:
-- jpenddreth0@census.gov
-- gfrediani1@senate.gov
-- nbea2@imageshack.us
-- wvalek3@vk.com
-Universal password: Password12345
+- jpenddreth0@census.gov : super_user
+- gfrediani1@senate.gov : user
+- nbea2@imageshack.us : user 
+- wvalek3@vk.com : admin
+Common password: Password12345
 
 
 # vite-template-redux
