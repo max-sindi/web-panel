@@ -1,6 +1,7 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit"
 import {IFriend, IFriendId} from "src/modules/friend/friend.slice"
 import {Modify} from "src/tools/types"
+import {RootState} from "src/setup/store"
 
 export interface IUser {
   id: number
@@ -27,3 +28,4 @@ const userSlice = createSlice({
 
 export default userSlice.reducer
 export const usersBasicActions = userSlice.actions
+export const usersBasicSelectors = usersAdapter.getSelectors<RootState>((state) => state.userReducer)

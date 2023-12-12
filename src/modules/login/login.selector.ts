@@ -1,5 +1,5 @@
 import { createSelector } from "@reduxjs/toolkit"
-import { RootState } from "src/config/store"
+import { RootState } from "src/setup/store"
 
 const reducerSelector = (state: RootState) => state.loginReducer
 

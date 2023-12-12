@@ -1,15 +1,19 @@
 import React from "react"
-import { Box, Container, Flex, Spacer } from "@chakra-ui/react"
+import {Box, Card, Container, Flex, Spacer} from "@chakra-ui/react"
+import Button from "src/UI/Button/Button.view"
 
 interface IHeaderProps { logout: () => void}
 
 const Header: React.FC<IHeaderProps> = ({ logout }) => {
   return (
-    <Container as={"header"} maxW={"100%"} height={100} bgColor={"teal"}>
-      <Flex>
-        <Box height={"full"}>dasd</Box>
-        <Spacer />
-      </Flex>
+    <Container as={"header"} maxW={"100%"} height={100}>
+      <Card>
+        <Flex p={10}>
+          <Box height={"full"}>Logo</Box>
+          <Spacer />
+          <Button onClick={logout} >Logout</Button>
+        </Flex>
+      </Card>
     </Container>
   )
 }

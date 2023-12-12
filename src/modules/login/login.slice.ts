@@ -1,12 +1,12 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
-import { IApiUser } from "src/modules/user/user.slice"
+import {IApiUser, IUser} from "src/modules/user/user.slice"
 
 interface ILoginSlice {
-  user: IApiUser
+  user: IUser
 }
 
 const getInitialState = (): ILoginSlice => ({
-  user: {} as IApiUser,
+  user: {} as IUser,
 })
 
 const loginSlice = createSlice({
@@ -23,7 +23,7 @@ const loginSlice = createSlice({
     ) => {
       state.user = user
     },
-    logout: getInitialState,
+    logoutUser: getInitialState,
   },
 })
 

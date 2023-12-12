@@ -1,7 +1,8 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { Container as ChakraContainer } from "@chakra-ui/react"
-import { useLocation } from "react-router"
 import Header from "src/UI/Header"
+import {useAppDispatch} from "src/setup/hooks"
+import {loginBasicActions} from "src/modules/login/login.slice"
 
 interface IDefaultLayoutProps {
   children: React.JSX
@@ -9,15 +10,15 @@ interface IDefaultLayoutProps {
 }
 
 const DefaultLayout: React.FC<IDefaultLayoutProps> = ({ children, header }) => {
-  const location = useLocation()
+  const dispatch = useAppDispatch()
 
-  useEffect(() => {
-    console.log(location)
-  }, [])
+  const onLogout = () => {
+    dispatch(loginBasicActions.logoutUser())
+  }
 
   return (
     <ChakraContainer maxW={1200}>
-      {header && <Header />}
+      {header && <Header logout={onLogout} />}
       {children}
     </ChakraContainer>
   )

@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import Button from "src/UI/Button/Button.view"
 import { useNavigate } from "react-router"
 import {
+  Card,
   Center,
   Container,
   Flex,
@@ -11,7 +12,7 @@ import {
 } from "@chakra-ui/react"
 import LoginInput from "src/modules/login/components/LoginInput"
 import PasswordInput from "src/modules/login/components/PasswordInput"
-import { useAppDispatch } from "src/config/hooks"
+import { useAppDispatch } from "src/setup/hooks"
 import { loginBasicActions } from "src/modules/login/login.slice"
 import passwordInput from "src/modules/login/components/PasswordInput"
 
@@ -28,19 +29,21 @@ const LoginForm: React.FC<ILoginFormProps> = () => {
   }
 
   return (
-    <Container height={"70vh"}>
-      <Center height={"100%"}>
-        <Stack direction={"column"} gap={4}>
-          <Heading size={"3xl"}>Welcome to our app</Heading>
-          <Spacer />
-          <Spacer />
-          <LoginInput value={email} onChange={setEmail} />
-          <PasswordInput value={password} onChange={setPassword} />
-          <Spacer />
-          <Spacer />
-          <Button onClick={onSubmit}>to users page</Button>
-        </Stack>
-      </Center>
+    <Container>
+        <Center>
+      <Card p={20} height={"70vh"} mt={"15vh"}>
+          <Stack direction={"column"} gap={4}>
+            <Heading size={"3xl"}>Welcome to our app</Heading>
+            <Spacer />
+            <Spacer />
+            <LoginInput value={email} onChange={setEmail} />
+            <PasswordInput value={password} onChange={setPassword} />
+            <Spacer />
+            <Spacer />
+            <Button onClick={onSubmit}>Log In</Button>
+          </Stack>
+      </Card>
+        </Center>
     </Container>
   )
 }

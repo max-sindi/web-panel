@@ -1,22 +1,34 @@
 import { put, takeLatest } from "redux-saga/effects"
 import { IApiUser, IUser, usersBasicActions } from "src/modules/user/user.slice"
 import { friendsBasicActions, IFriend } from "src/modules/friend/friend.slice"
-import axiosInstance from "src/config/axios"
+import axiosInstance from "src/setup/axios"
 
-interface INormalizedData {
+interface INormalizedUsersData {
   friends: IFriend[]
   users: IUser[]
 }
 
-const normalizeData = (data: IApiUser[]): INormalizedData => {
-  return data.reduce<INormalizedData>(
-    (acc, cur) => {
+interface INormalizedUserData {
+  user: IUser
+  friends: IFriend[]
+}
+
+export const normalizeUserData = (data: IApiUser): INormalizedUserData => {
+  const { friends } = data
+  const user = { ...data, friends: friends.map(({id}) => id) }
+  return { user, friends }
+}
+
+export const normalizeUsersList = (data: IApiUser[]): INormalizedUsersData => {
+  return data.reduce<INormalizedUsersData>(
+    (acc, item) => {
+      const normalizedItem = normalizeUserData(item)
       return {
         ...acc,
-        friends: [...acc.friends, ...cur.friends],
+        friends: [...acc.friends, ...normalizedItem.friends],
         users: [
           ...acc.users,
-          { ...cur, friends: cur.friends.map(({ id }) => id) },
+          { ...item, friends: normalizedItem.user.friends },
         ],
       }
     },
@@ -24,9 +36,9 @@ const normalizeData = (data: IApiUser[]): INormalizedData => {
   )
 }
 
-function* getUsersSaga() {
+export function* getUsersSaga() {
   const { data }: { data: IApiUser[] } = yield axiosInstance.get("/users")
-  const { friends, users } = normalizeData(data)
+  const { friends, users } = normalizeUsersList(data)
 
   yield put(usersBasicActions.getAllUsersSuccess(users))
   yield put(friendsBasicActions.getAllFriendsSuccess(friends))

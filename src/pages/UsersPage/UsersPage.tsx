@@ -1,6 +1,6 @@
 import React from "react"
 import UsersTable from "src/modules/user/UsersTable"
-import DefaultLayout from "src/UI/Layout/DefaultLayout"
+import DefaultLayout from "src/components/Layout/DefaultLayout"
 
 interface IUsersPageProps {
 }

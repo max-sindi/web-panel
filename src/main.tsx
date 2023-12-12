@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
 import { Provider } from "react-redux"
-import { store } from "src/config/store"
+import { store } from "src/setup/store"
 import App from "src/App"
 import { ChakraProvider } from "@chakra-ui/react"
 import "./index.css"

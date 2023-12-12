@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
-import DefaultLayout from "src/UI/Layout/DefaultLayout"
+import DefaultLayout from "src/components/Layout/DefaultLayout"
 import LoginForm from "src/modules/login/LoginForm"
-import { useAppSelector } from "src/config/hooks"
+import { useAppSelector } from "src/setup/hooks"
 import { isAuthorizedSelector } from "src/modules/login/login.selector"
 import { useNavigate } from "react-router"
 
