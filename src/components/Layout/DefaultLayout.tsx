@@ -1,8 +1,8 @@
 import React from "react"
-import {Box, Container, Stack} from "@chakra-ui/react"
+import { Box, Container, Stack } from "@chakra-ui/react"
 import Header from "src/UI/Header"
-import {useAppDispatch} from "src/setup/hooks"
-import {loginBasicActions} from "src/modules/login/login.slice"
+import { useAppDispatch } from "src/setup/hooks"
+import { loginBasicActions } from "src/modules/login/login.slice"
 
 interface IDefaultLayoutProps {
   children: React.JSX

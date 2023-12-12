@@ -1,6 +1,6 @@
 import React from "react"
 import Input from "src/UI/Input/Input"
-import {IStatefulAtom} from "src/tools/types"
+import { IStatefulAtom } from "src/tools/types"
 
 interface ILoginInputProps extends IStatefulAtom<string> {}
 
@@ -9,7 +9,7 @@ const LoginInput: React.FC<ILoginInputProps> = ({ value, onChange }) => {
     <Input
       formControllerProps={{ isRequired: true }}
       labelProps={{ label: "Email" }}
-      inputProps={{ value, onChange }}
+      inputProps={{ value, onChange, name: "email", type: "email" }}
     />
   )
 }

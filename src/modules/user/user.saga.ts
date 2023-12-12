@@ -15,7 +15,7 @@ interface INormalizedUserData {
 
 export const normalizeUserData = (data: IApiUser): INormalizedUserData => {
   const { friends } = data
-  const user = { ...data, friends: friends.map(({id}) => id) }
+  const user = { ...data, friends: friends.map(({ id }) => id) }
   return { user, friends }
 }
 

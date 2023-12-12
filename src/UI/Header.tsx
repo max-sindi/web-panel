@@ -1,8 +1,10 @@
 import React from "react"
-import {Box, Card, Container, Flex, Spacer} from "@chakra-ui/react"
-import Button from "src/UI/Button/Button.view"
+import { Box, Card, Container, Flex, Spacer } from "@chakra-ui/react"
+import Button from "src/UI/Button/Button"
 
-interface IHeaderProps { logout: () => void}
+interface IHeaderProps {
+  logout: () => void
+}
 
 const Header: React.FC<IHeaderProps> = ({ logout }) => {
   return (
@@ -11,7 +13,7 @@ const Header: React.FC<IHeaderProps> = ({ logout }) => {
         <Flex p={10} alignItems={"center"}>
           <Box>Our App</Box>
           <Spacer />
-          <Button onClick={logout} >Logout</Button>
+          <Button onClick={logout}>Logout</Button>
         </Flex>
       </Card>
     </Container>

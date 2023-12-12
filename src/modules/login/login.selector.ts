@@ -7,3 +7,13 @@ export const isAuthorizedSelector = createSelector(
   reducerSelector,
   (state) => !!state.user.email,
 )
+
+export const verifyLoadingSelector = createSelector(
+  reducerSelector,
+  (state) => state.verifyLoading,
+)
+
+export const loginBasicSelectors = {
+  isAuthorizedSelector,
+  verifyLoadingSelector,
+}

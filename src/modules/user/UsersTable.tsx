@@ -5,13 +5,12 @@ import {
   Tbody,
   Tr,
   Th,
-  TableCaption,
-  TableContainer, Heading,
+  TableContainer,
+  Heading,
 } from "@chakra-ui/react"
-import {useAppSelector} from "src/setup/hooks"
-import {usersBasicSelectors} from "src/modules/user/user.slice"
+import { useAppSelector } from "src/setup/hooks"
+import { usersBasicSelectors } from "src/modules/user/user.slice"
 import UserRow from "src/modules/user/components/UserRow/UserRow"
-import {RowModel, useReactTable} from "@tanstack/react-table"
 
 interface IUsersTableProps {}
 
@@ -19,9 +18,11 @@ const UsersTable: React.FC<IUsersTableProps> = () => {
   const usersIds = useAppSelector(usersBasicSelectors.selectIds)
   return (
     <>
-      <Heading size={"md"} p={5}>Users </Heading>
+      <Heading size={"md"} p={5}>
+        Users
+      </Heading>
       <TableContainer>
-        <Table variant='simple'>
+        <Table variant="simple">
           <Thead>
             <Tr>
               <Th>Id</Th>
@@ -34,8 +35,8 @@ const UsersTable: React.FC<IUsersTableProps> = () => {
             </Tr>
           </Thead>
           <Tbody>
-            {usersIds.map(userId => (
-              <UserRow id={userId} key={userId}/>
+            {usersIds.map((userId) => (
+              <UserRow id={userId} key={userId} />
             ))}
           </Tbody>
         </Table>
