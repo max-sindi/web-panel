@@ -33,7 +33,7 @@ const LoginForm: React.FC<ILoginFormProps> = () => {
     <Container>
       <Center>
         <Card p={20} height={"70vh"} mt={"15vh"}>
-          <Form >
+          <Form>
             <Stack direction={"column"} gap={4}>
               <Heading size={"3xl"}>Welcome to our app</Heading>
               <Spacer />

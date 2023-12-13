@@ -13,12 +13,9 @@ const verifyLoadingSelector = createSelector(
   (state) => state.verifyLoading,
 )
 
-const userDataSelector = createSelector(
-  reducerSelector,
-  state => state.user
-)
+const userDataSelector = createSelector(reducerSelector, (state) => state.user)
 
-const roleSelector = createSelector(userDataSelector, userData => ({
+const roleSelector = createSelector(userDataSelector, (userData) => ({
   isAdmin: userData.role === "admin",
   isUser: userData.role === "user",
   isSuperUser: userData.role === "super_user",
@@ -27,5 +24,5 @@ const roleSelector = createSelector(userDataSelector, userData => ({
 export const loginBasicSelectors = {
   isAuthorizedSelector,
   verifyLoadingSelector,
-  roleSelector
+  roleSelector,
 }

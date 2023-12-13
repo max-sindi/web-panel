@@ -3,7 +3,7 @@ import { IApiUser, IUser, usersBasicActions } from "src/modules/user/user.slice"
 import { friendsBasicActions, IFriend } from "src/modules/friend/friend.slice"
 import axiosInstance from "src/setup/axios"
 
-interface INormalizedUsersData {
+interface INormalizedUsersList {
   friends: IFriend[]
   users: IUser[]
 }
@@ -19,8 +19,8 @@ export const normalizeUserData = (data: IApiUser): INormalizedUserData => {
   return { user, friends }
 }
 
-export const normalizeUsersList = (data: IApiUser[]): INormalizedUsersData => {
-  return data.reduce<INormalizedUsersData>(
+export const normalizeUsersList = (data: IApiUser[]): INormalizedUsersList => {
+  return data.reduce<INormalizedUsersList>(
     (acc, item) => {
       const normalizedItem = normalizeUserData(item)
       return {

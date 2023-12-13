@@ -1,6 +1,6 @@
 import React from "react"
 import { Box, Container, Stack } from "@chakra-ui/react"
-import Header from "src/UI/Header"
+import Header from "src/UI/Header/Header"
 import { useAppDispatch } from "src/setup/hooks"
 import { loginBasicActions } from "src/modules/login/login.slice"
 
