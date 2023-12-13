@@ -1,5 +1,5 @@
-import React from "react"
-import {Divider, Stack, Td, Tr} from "@chakra-ui/react"
+import React, { Fragment } from "react"
+import { Divider, Stack, Td, Tr } from "@chakra-ui/react"
 import { EntityId } from "@reduxjs/toolkit"
 import { useAppSelector } from "src/setup/hooks"
 import { usersBasicSelectors } from "src/modules/user/user.slice"
@@ -30,10 +30,10 @@ const UserRow: React.FC<IUserRowProps> = ({ id }) => {
       <Td>
         <Stack>
           {userData?.friends?.map((friendId, index, arr) => (
-            <>
-              <Friend id={friendId} key={friendId} />
+            <Fragment key={friendId}>
+              <Friend id={friendId} />
               {index !== arr.length - 1 && <Divider />}
-            </>
+            </Fragment>
           ))}
         </Stack>
       </Td>
