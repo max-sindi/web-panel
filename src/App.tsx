@@ -3,18 +3,18 @@ import { RouterProvider } from "react-router-dom"
 import router from "src/router"
 import React, { useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "src/setup/hooks"
-import { loginBasicSelectors } from "src/modules/login/login.selector"
+import { signInBasicSelectors } from "src/modules/signIn/signIn.selector"
 import { Center, CircularProgress } from "@chakra-ui/react"
-import { loginBasicActions } from "src/modules/login/login.slice"
+import { signInBasicActions } from "src/modules/signIn/signIn.slice"
 
 function App() {
   const dispatch = useAppDispatch()
   const verifyLoading = useAppSelector(
-    loginBasicSelectors.verifyLoadingSelector,
+    signInBasicSelectors.verifyLoadingSelector,
   )
 
   useEffect(() => {
-    dispatch(loginBasicActions.verifyUser())
+    dispatch(signInBasicActions.verifyUser())
   }, [])
 
   return verifyLoading === "pending" ? (

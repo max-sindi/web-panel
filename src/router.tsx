@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom"
 import UsersPage from "src/pages/UsersPage/UsersPage"
-import LoginPage from "src/pages/LoginPage/LoginPage"
+import SignInPage from "src/pages/SignInPage/SignInPage"
 import PrivateRoute from "src/components/Route/PrivateRoute"
 import GuestRoute from "src/components/Route/GuestRoute"
 
@@ -16,11 +16,11 @@ const router = createBrowserRouter([
     },
   },
   {
-    path: "/login",
+    path: "/signIn",
     Component: () => {
       return (
         <GuestRoute>
-          <LoginPage />
+          <SignInPage />
         </GuestRoute>
       )
     },

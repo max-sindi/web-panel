@@ -1,7 +1,7 @@
 import { createSelector } from "@reduxjs/toolkit"
 import { RootState } from "src/setup/store"
 
-const reducerSelector = (state: RootState) => state.loginReducer
+const reducerSelector = (state: RootState) => state.signInReducer
 
 const isAuthorizedSelector = createSelector(
   reducerSelector,
@@ -21,7 +21,7 @@ const roleSelector = createSelector(userDataSelector, (userData) => ({
   isSuperUser: userData.role === "super_user",
 }))
 
-export const loginBasicSelectors = {
+export const signInBasicSelectors = {
   isAuthorizedSelector,
   verifyLoadingSelector,
   roleSelector,

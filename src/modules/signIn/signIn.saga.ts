@@ -1,23 +1,23 @@
 import { takeLatest, put, call, select } from "redux-saga/effects"
-import { loginBasicActions } from "src/modules/login/login.slice"
+import { signInBasicActions } from "src/modules/signIn/signIn.slice"
 import axiosInstance from "src/setup/axios"
 import { usersBasicSelectors } from "src/modules/user/user.slice"
 import { getToken, removeToken, setToken } from "src/tools/storage"
 import { jwtDecode } from "jwt-decode"
 import { getUsersSaga, normalizeUserData } from "src/modules/user/user.saga"
-import { IAuthData } from "src/modules/login/login.types"
+import { IAuthData } from "src/modules/signIn/signIn.types"
 
-function* loginUserSaga({
+function* signInUserSaga({
   payload,
-}: ReturnType<typeof loginBasicActions.loginUser>) {
+}: ReturnType<typeof signInBasicActions.signInUser>) {
   try {
     const {
       data: { user, accessToken },
-    }: { data: IAuthData } = yield axiosInstance.post("/login", payload)
+    }: { data: IAuthData } = yield axiosInstance.post("/signIn", payload)
     if (user) {
       const normalizedUserData = normalizeUserData(user)
       yield put(
-        loginBasicActions.loginUserSuccess({ user: normalizedUserData.user }),
+        signInBasicActions.signInUserSuccess({ user: normalizedUserData.user }),
       )
       setToken(accessToken)
       yield call(getUsersSaga)
@@ -43,20 +43,20 @@ function* verifyUserSaga() {
         const user = users.find(({ email }) => email === data.email)
 
         if (user) {
-          yield put(loginBasicActions.loginUserSuccess({ user }))
-          yield put(loginBasicActions.verifyFulfill())
+          yield put(signInBasicActions.signInUserSuccess({ user }))
+          yield put(signInBasicActions.verifyFulfill())
         }
       }
     } catch (e) {
-      yield put(loginBasicActions.logoutUser())
+      yield put(signInBasicActions.logoutUser())
     }
   } else {
-    yield put(loginBasicActions.verifyFulfill())
+    yield put(signInBasicActions.verifyFulfill())
   }
 }
 
-export default function* loginSaga() {
-  yield takeLatest(loginBasicActions.verifyUser, verifyUserSaga)
-  yield takeLatest(loginBasicActions.loginUser, loginUserSaga)
-  yield takeLatest(loginBasicActions.logoutUser, logoutUserSaga)
+export default function* signInSaga() {
+  yield takeLatest(signInBasicActions.verifyUser, verifyUserSaga)
+  yield takeLatest(signInBasicActions.signInUser, signInUserSaga)
+  yield takeLatest(signInBasicActions.logoutUser, logoutUserSaga)
 }

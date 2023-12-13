@@ -1,15 +1,15 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
-import { ILoginSlice } from "src/modules/login/login.types"
+import { ISignInSlice } from "src/modules/signIn/signIn.types"
 import { IUser } from "src/modules/user/user.types"
 
-const getInitialState = (): ILoginSlice => ({
+const getInitialState = (): ISignInSlice => ({
   user: {} as IUser,
   verifyLoading: "idle",
-  loginLoading: "idle",
+  signInLoading: "idle",
 })
 
-const loginSlice = createSlice({
-  name: "loginSlice",
+const signInSlice = createSlice({
+  name: "signInSlice",
   initialState: getInitialState(),
   reducers: {
     verifyUser: (state) => {
@@ -18,13 +18,13 @@ const loginSlice = createSlice({
     verifyFulfill: (state) => {
       state.verifyLoading = "idle"
     },
-    loginUser: (
+    signInUser: (
       state,
       payload: PayloadAction<{ email: string; password: string }>,
     ) => {
-      state.loginLoading = "pending"
+      state.signInLoading = "pending"
     },
-    loginUserSuccess: (
+    signInUserSuccess: (
       state,
       { payload: { user } }: PayloadAction<{ user: IUser }>,
     ) => {
@@ -34,5 +34,5 @@ const loginSlice = createSlice({
   },
 })
 
-export default loginSlice.reducer
-export const loginBasicActions = loginSlice.actions
+export default signInSlice.reducer
+export const signInBasicActions = signInSlice.actions

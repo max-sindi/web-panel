@@ -11,14 +11,14 @@ import {
 import { useAppSelector } from "src/setup/hooks"
 import { usersBasicSelectors } from "src/modules/user/user.slice"
 import UserRow from "src/modules/user/components/UserRow/UserRow"
-import { loginBasicSelectors } from "src/modules/login/login.selector"
+import { signInBasicSelectors } from "src/modules/signIn/signIn.selector"
 
 interface IUsersTableProps {}
 
 const UsersTable: React.FC<IUsersTableProps> = () => {
   const usersIds = useAppSelector(usersBasicSelectors.selectIds)
   const { isSuperUser, isAdmin } = useAppSelector(
-    loginBasicSelectors.roleSelector,
+    signInBasicSelectors.roleSelector,
   )
   return (
     <>

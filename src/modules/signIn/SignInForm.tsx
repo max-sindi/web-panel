@@ -10,21 +10,21 @@ import {
   Spacer,
   Stack,
 } from "@chakra-ui/react"
-import LoginInput from "src/modules/login/components/LoginInput"
-import PasswordInput from "src/modules/login/components/PasswordInput"
+import LoginInput from "src/modules/signIn/components/LoginInput"
+import PasswordInput from "src/modules/signIn/components/PasswordInput"
 import { useAppDispatch } from "src/setup/hooks"
-import { loginBasicActions } from "src/modules/login/login.slice"
+import { signInBasicActions } from "src/modules/signIn/signIn.slice"
 import { Form } from "react-router-dom"
 
-interface ILoginFormProps {}
+interface ISignInFormProps {}
 
-const LoginForm: React.FC<ILoginFormProps> = () => {
+const SignInForm: React.FC<ISignInFormProps> = () => {
   const dispatch = useAppDispatch()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
   const onSubmit = () => {
-    dispatch(loginBasicActions.loginUser({ email, password }))
+    dispatch(signInBasicActions.signInUser({ email, password }))
   }
 
   return (
@@ -51,4 +51,4 @@ const LoginForm: React.FC<ILoginFormProps> = () => {
   )
 }
 
-export default LoginForm
+export default SignInForm

@@ -3,20 +3,20 @@ import createSagaMiddleware from "redux-saga"
 import { all, call } from "redux-saga/effects"
 import { userSaga } from "src/modules/user/user.saga"
 import userReducer from "src/modules/user/user.slice"
-import loginReducer from "src/modules/login/login.slice"
+import signInReducer from "src/modules/signIn/signIn.slice"
 import friendReducer from "src/modules/friend/friend.slice"
-import loginSaga from "src/modules/login/login.saga"
+import signInSaga from "src/modules/signIn/signIn.saga"
 
 const sagaMiddleware = createSagaMiddleware()
 
 export const store = configureStore({
-  reducer: { userReducer, friendReducer, loginReducer },
+  reducer: { userReducer, friendReducer, signInReducer },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(sagaMiddleware),
 })
 
 function* rootSaga() {
-  yield all([call(userSaga), call(loginSaga)])
+  yield all([call(userSaga), call(signInSaga)])
 }
 
 sagaMiddleware.run(rootSaga)

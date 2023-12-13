@@ -4,7 +4,7 @@ import { EntityId } from "@reduxjs/toolkit"
 import { useAppSelector } from "src/setup/hooks"
 import { usersBasicSelectors } from "src/modules/user/user.slice"
 import Friend from "src/modules/user/components/Friend/Friend"
-import { loginBasicSelectors } from "src/modules/login/login.selector"
+import { signInBasicSelectors } from "src/modules/signIn/signIn.selector"
 
 interface IUserRowProps {
   id: EntityId
@@ -16,7 +16,7 @@ const UserRow: React.FC<IUserRowProps> = ({ id }) => {
   )
 
   const { isSuperUser, isAdmin } = useAppSelector(
-    loginBasicSelectors.roleSelector,
+    signInBasicSelectors.roleSelector,
   )
 
   return (

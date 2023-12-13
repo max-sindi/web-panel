@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { useNavigate } from "react-router"
 import { useAppSelector } from "src/setup/hooks"
-import { loginBasicSelectors } from "src/modules/login/login.selector"
+import { signInBasicSelectors } from "src/modules/signIn/signIn.selector"
 
 interface IPrivateRouteProps {
   children: React.JSX
@@ -9,11 +9,11 @@ interface IPrivateRouteProps {
 
 const PrivateRoute: React.FC<IPrivateRouteProps> = ({ children }) => {
   const navigate = useNavigate()
-  const isAuthorized = useAppSelector(loginBasicSelectors.isAuthorizedSelector)
+  const isAuthorized = useAppSelector(signInBasicSelectors.isAuthorizedSelector)
 
   useEffect(() => {
     if (!isAuthorized) {
-      navigate("/login")
+      navigate("/sign-in")
     }
   }, [isAuthorized])
 

@@ -2,7 +2,7 @@ import React from "react"
 import { Box, Container, Stack } from "@chakra-ui/react"
 import Header from "src/UI/Header/Header"
 import { useAppDispatch } from "src/setup/hooks"
-import { loginBasicActions } from "src/modules/login/login.slice"
+import { signInBasicActions } from "src/modules/signIn/signIn.slice"
 
 interface IDefaultLayoutProps {
   children: React.JSX
@@ -13,7 +13,7 @@ const DefaultLayout: React.FC<IDefaultLayoutProps> = ({ children, header }) => {
   const dispatch = useAppDispatch()
 
   const onLogout = () => {
-    dispatch(loginBasicActions.logoutUser())
+    dispatch(signInBasicActions.logoutUser())
   }
 
   return (

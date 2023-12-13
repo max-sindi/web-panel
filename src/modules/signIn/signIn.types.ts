@@ -6,8 +6,8 @@ export interface IAuthData {
   user: IApiUser
 }
 
-export interface ILoginSlice {
+export interface ISignInSlice {
   user: IUser
   verifyLoading: TLoadingState
-  loginLoading: TLoadingState
+  signInLoading: TLoadingState
 }
