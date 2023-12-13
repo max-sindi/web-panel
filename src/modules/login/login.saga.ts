@@ -1,15 +1,11 @@
 import { takeLatest, put, call, select } from "redux-saga/effects"
 import { loginBasicActions } from "src/modules/login/login.slice"
 import axiosInstance from "src/setup/axios"
-import { IApiUser, usersBasicSelectors } from "src/modules/user/user.slice"
+import { usersBasicSelectors } from "src/modules/user/user.slice"
 import { getToken, removeToken, setToken } from "src/tools/storage"
 import { jwtDecode } from "jwt-decode"
 import { getUsersSaga, normalizeUserData } from "src/modules/user/user.saga"
-
-interface IAuthData {
-  accessToken: string
-  user: IApiUser
-}
+import { IAuthData } from "src/modules/login/login.types"
 
 function* loginUserSaga({
   payload,

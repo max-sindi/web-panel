@@ -1,20 +1,6 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit"
-import { IFriend, TFriendId } from "src/modules/friend/friend.slice"
-import { Modify } from "src/tools/types"
 import { RootState } from "src/setup/store"
-
-export interface IUser {
-  id: number
-  role: "admin" | "super_user" | "user"
-  first_name: string
-  last_name: string
-  email: string
-  gender: string
-  ip_address: string
-  friends: Array<TFriendId>
-}
-
-export interface IApiUser extends Modify<IUser, { friends: Array<IFriend> }> {}
+import { IUser } from "src/modules/user/user.types"
 
 export const usersAdapter = createEntityAdapter<IUser>()
 

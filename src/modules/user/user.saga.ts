@@ -1,7 +1,9 @@
 import { put, takeLatest } from "redux-saga/effects"
-import { IApiUser, IUser, usersBasicActions } from "src/modules/user/user.slice"
-import { friendsBasicActions, IFriend } from "src/modules/friend/friend.slice"
+import { usersBasicActions } from "src/modules/user/user.slice"
+import { friendsBasicActions } from "src/modules/friend/friend.slice"
 import axiosInstance from "src/setup/axios"
+import { IFriend } from "src/modules/friend/friend.types"
+import { IApiUser, IUser } from "src/modules/user/user.types"
 
 interface INormalizedUsersList {
   friends: IFriend[]

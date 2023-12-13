@@ -2,10 +2,7 @@ import React, { useEffect } from "react"
 import DefaultLayout from "src/components/Layout/DefaultLayout"
 import LoginForm from "src/modules/login/LoginForm"
 import { useAppSelector } from "src/setup/hooks"
-import {
-  isAuthorizedSelector,
-  loginBasicSelectors,
-} from "src/modules/login/login.selector"
+import { loginBasicSelectors } from "src/modules/login/login.selector"
 import { useNavigate } from "react-router"
 
 interface ILoginPageProps {}

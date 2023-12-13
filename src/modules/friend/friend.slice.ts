@@ -1,12 +1,6 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit"
 import { RootState } from "src/setup/store"
-
-export interface IFriend {
-  id: number
-  name: string
-}
-
-export type TFriendId = IFriend["id"]
+import { IFriend } from "src/modules/friend/friend.types"
 
 const friendAdapter = createEntityAdapter<IFriend>()
 

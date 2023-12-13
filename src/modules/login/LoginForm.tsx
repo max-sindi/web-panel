@@ -14,13 +14,11 @@ import LoginInput from "src/modules/login/components/LoginInput"
 import PasswordInput from "src/modules/login/components/PasswordInput"
 import { useAppDispatch } from "src/setup/hooks"
 import { loginBasicActions } from "src/modules/login/login.slice"
-import passwordInput from "src/modules/login/components/PasswordInput"
 import { Form } from "react-router-dom"
 
 interface ILoginFormProps {}
 
 const LoginForm: React.FC<ILoginFormProps> = () => {
-  const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")

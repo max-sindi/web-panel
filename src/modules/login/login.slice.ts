@@ -1,12 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
-import { IUser } from "src/modules/user/user.slice"
-import { TLoadingState } from "src/tools/types"
-
-interface ILoginSlice {
-  user: IUser
-  verifyLoading: TLoadingState
-  loginLoading: TLoadingState
-}
+import { ILoginSlice } from "src/modules/login/login.types"
+import { IUser } from "src/modules/user/user.types"
 
 const getInitialState = (): ILoginSlice => ({
   user: {} as IUser,
