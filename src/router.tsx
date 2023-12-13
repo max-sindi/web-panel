@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     },
   },
   {
-    path: "/signIn",
+    path: "/sign-in",
     Component: () => {
       return (
         <GuestRoute>

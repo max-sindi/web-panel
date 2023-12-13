@@ -1,7 +1,7 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit"
 import createSagaMiddleware from "redux-saga"
 import { all, call } from "redux-saga/effects"
-import { userSaga } from "src/modules/user/user.saga"
+import userSaga from "src/modules/user/user.saga"
 import userReducer from "src/modules/user/user.slice"
 import signInReducer from "src/modules/signIn/signIn.slice"
 import friendReducer from "src/modules/friend/friend.slice"

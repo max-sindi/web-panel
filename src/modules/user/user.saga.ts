@@ -46,6 +46,6 @@ export function* getUsersSaga() {
   yield put(friendsBasicActions.getAllFriendsSuccess(friends))
 }
 
-export function* userSaga() {
+export default function* userSaga() {
   yield takeLatest(usersBasicActions.getAllUsers, getUsersSaga)
 }
