@@ -13,9 +13,10 @@ const PrivateRoute: React.FC<IPrivateRouteProps> = ({ children }) => {
 
   useEffect(() => {
     if (!isAuthorized) {
+      // move to sign-in page if not authorized
       navigate("/sign-in")
     }
-  }, [isAuthorized])
+  }, [isAuthorized, navigate])
 
   return !isAuthorized ? null : children
 }

@@ -13,9 +13,10 @@ const GuestRoute: React.FC<IPrivateRouteProps> = ({ children }) => {
 
   useEffect(() => {
     if (isAuthorized) {
+      // move away if authorized
       navigate("/users")
     }
-  }, [isAuthorized])
+  }, [isAuthorized, navigate])
 
   return isAuthorized ? null : children
 }

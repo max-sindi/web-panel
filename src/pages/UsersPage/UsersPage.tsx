@@ -1,7 +1,6 @@
 import React from "react"
 import UsersTable from "src/modules/user/UsersTable"
 import DefaultLayout from "src/components/Layout/DefaultLayout"
-import { Heading } from "@chakra-ui/react"
 
 interface IUsersPageProps {}
 
